@@ -71,8 +71,9 @@ body {
 }
 
 .btn.function {
-    background-color: #a5a5a5;
-    color: #000;
+    background-color: #64748b;
+    color: #fff;
+    font-size: 1.3rem;
 }
 
 .btn.operator {

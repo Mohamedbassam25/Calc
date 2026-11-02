@@ -39,6 +39,11 @@ keys.addEventListener('click', (event) => {
     if (target.getAttribute('data-action') === 'decimal') {
         inputDecimal();
     }
+    
+    if (target.getAttribute('data-action') === 'sign') {
+        toggleSign();
+    }
+    
 });
 
 function handleNumber(num) {
@@ -114,4 +119,15 @@ function clearCalculator() {
     operator = null;
     resetDisplay = false;
     updateDisplay();
+}
+
+function toggleSign() {
+    if (currentInput !== '0') {
+        if (currentInput.startsWith('-')) {
+            currentInput = currentInput.slice(1); 
+        } else {
+            currentInput = '-' + currentInput; 
+        }
+        updateDisplay();
+    }
 }
