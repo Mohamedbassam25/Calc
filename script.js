@@ -6,45 +6,36 @@ let previousInput = '';
 let operator = null;
 let resetDisplay = false;
 
-// تحديث شاشة العرض
 function updateDisplay() {
     display.textContent = currentInput;
 }
 
-// التعامل مع الضغط على الأزرار باستخدام Event Delegation (كما ورد في اللاب)
 keys.addEventListener('click', (event) => {
     const target = event.target;
     
-    // التأكد من أن المضغط هو زر فعلياً
     if (!target.classList.contains('btn')) return;
 
-    // 1. إذا كان الزر رقماً
     if (target.hasAttribute('data-number')) {
         handleNumber(target.getAttribute('data-number'));
     }
 
-    // 2. إذا كان الزر عملية حسابية (+, -, x, ÷)
     if (target.classList.contains('operator') && target.getAttribute('data-action') !== 'calculate') {
         handleOperator(target.getAttribute('data-action'));
     }
 
-    // 3. زر التساوي (=)
     if (target.getAttribute('data-action') === 'calculate') {
         calculate();
     }
 
-    // 4. زر التصفية (AC)
     if (target.getAttribute('data-action') === 'clear') {
         clearCalculator();
     }
 
-    // 5. زر النسبة المئوية (%)
     if (target.getAttribute('data-action') === 'percentage') {
         currentInput = (parseFloat(currentInput) / 100).toString();
         updateDisplay();
     }
 
-    // 6. زر العلامة العشرية (.)
     if (target.getAttribute('data-action') === 'decimal') {
         inputDecimal();
     }
