@@ -6,7 +6,7 @@
 }
 
 body {
-    background-color: #000000;
+    background-color: #4053a0b0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@ body {
 
 .calculator-container {
     width: 320px;
-    background-color: #000;
+    background-color: #2b9321;
     padding: 20px;
     border-radius: 20px;
 }
@@ -76,6 +76,6 @@ body {
 }
 
 .btn.operator {
-    background-color: #ff9f0a;
+    background-color: #443693;
     color: #fff;
 }
